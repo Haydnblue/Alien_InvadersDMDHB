@@ -110,6 +110,10 @@ Player.prototype.draw = function(canvas) {
 Player.prototype.die = function() {
   GameAudio.play('die');
   Game.callbacks['die']();
+    // this is where i have added a way to reset the score to 0 on death
+    document.getElementById('score').innerHTML="Score : " - score;
+    score = score == 0;
+    
 }
 
 Player.prototype.step = function(dt) {
