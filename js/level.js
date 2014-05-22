@@ -35,10 +35,10 @@
           [0,0,1,1,1,1,1,1,1,1,0]]};
 
   var spriteData = {
-    'alien1': { sx: 0,  sy: 0,  w: 11, h: 18, cls: Alien, frames: 5 },
-    'alien2': { sx: 0,  sy: 20, w: 11, h: 18, cls: Alien, frames: 5 },
-    'player': { sx: 0,  sy: 36, w: 26, h: 17, cls: Player },
-    'missile': { sx: 0,  sy: 86, w: 3,  h: 14, cls: Missile }
+    'alien1': { sx: 0,  sy: 0,  w: 24, h: 17, cls: Alien, frames: 2 },
+    'alien2': { sx: 0,  sy: 15, w: 24, h: 17, cls: Alien, frames: 2 },
+    'player': { sx: 0,  sy: 44, w: 25, h: 29, cls: Player },
+    'missile': { sx: 0,  sy: 74, w: 6,  h: 15, cls: Missile, frames:5  }
   }
 // this is where i edit the menu text
   function startGame() {
