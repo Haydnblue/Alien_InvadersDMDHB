@@ -1,4 +1,11 @@
 
+
+var score = 0;
+
+//NUMBER OF LIVES
+
+var lives = 3;
+
 var AlienFlock = function AlienFlock() {
   this.invulnrable = true;
   this.dx = 10; this.dy = 0;
@@ -57,8 +64,12 @@ Alien.prototype.draw = function(canvas) {
 //this is the part of the code where i can change what events happen when alien dies//
 Alien.prototype.die = function() {
   GameAudio.play('die');
-  this.flock.speed += 1;  //here is where there is a rule added where when alien dies it increseas the speed of the alien flock//
+  this.flock.speed += 1;  //here is where there is a rule added where when alien dies it increseas the speed of the alien flock
   this.board.remove(this);
+    // this is where i can edit the score ammount on aliens killed.
+    document.getElementById('score').innerHTML="Score : " + score;
+    score = score +1;
+    
 }
 
 Alien.prototype.step = function(dt) {
