@@ -10,7 +10,7 @@ var AlienFlock = function AlienFlock() {
   this.invulnrable = true;
   this.dx = 10; this.dy = 0;
   this.hit = 1; this.lastHit = 0;
-  this.speed = 10;
+  this.speed = 10;      //this controls how fast the aliens are.
 
   this.draw = function() {};
     //This is where you load next level or if there are no more levels to be loaded it will load up the win screen.
@@ -27,7 +27,7 @@ var AlienFlock = function AlienFlock() {
       this.lastHit = this.hit;
       this.dy = this.speed;
     } else {
-      this.dy=0;
+      this.dy=0;            //this determines if the aliens move down the y axis when they move frames
     }
     this.dx = this.speed * this.hit;
 
@@ -51,10 +51,10 @@ var AlienFlock = function AlienFlock() {
 
 
 
-var Alien = function Alien(opts) {
+var Alien = function Alien(opts) {          
   this.flock = opts['flock'];
   this.frame = 0;
-  this.mx = 0;
+  this.mx = 0;              //This determines the start position of the aliens on the x axis
 }
 
 Alien.prototype.draw = function(canvas) {
