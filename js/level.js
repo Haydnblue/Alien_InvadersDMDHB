@@ -40,11 +40,28 @@
     'player': { sx: 0,  sy: 44, w: 25, h: 29, cls: Player },
     'missile': { sx: 0,  sy: 74, w: 6,  h: 15, cls: Missile, frames:5  }
   }
-// this is where i edit the menu text
+
+function loseLife(){
+      if(this.player) lives = lives -1;
+      document.getElementById('Lives').innerHTML="LIVES: " + lives;
+  }
+    
+
+function loseLifeScreen()   {
+        var screen = new GameScreen("SCORE: "+score+" ","you have "+lives+" lives left",
+                                    function() {
+                                        game.loadBoard(new
+                                                       GameBoard(1));
+                                    });
+        game.load.Board(screen);
+    }
+  
+  
+  // this is where i edit the menu text
   function startGame() {
-    var screen = new GameScreen("Fire Fighter","press space to start",
+    var screen = new GameScreen("Charizard fighter","press space to start",
                                  function() {
-                                     Game.loadBoard(new GameBoard(1));
+                                     Game.loadBoard(new GameBoard(1));                           
                                  });
     Game.loadBoard(screen);
     Game.loop();
@@ -54,6 +71,9 @@
     var screen = new GameScreen("Game Over","(press space to restart)",
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
+                                      document.getElementById('lives').innerHTML="LIVES: " + lives;
+                                     score =0;
+                                     document.getElementById('score').innerHTML="SCORE : " + score;
                                  });
     Game.loadBoard(screen);
   }
@@ -73,6 +93,7 @@
                        Game.initialize("#gameboard", levelData, spriteData,
                                       { "start": startGame,
                                         "die"  : endGame,
+                                        "loseLife" : loseLifeScreen,
                                         "win"  : winGame });
                    });
    });

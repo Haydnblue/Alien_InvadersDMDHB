@@ -1,5 +1,5 @@
 
-
+        //STARTING SCORE
 var score = 0;
 
 //NUMBER OF LIVES
@@ -14,7 +14,10 @@ var AlienFlock = function AlienFlock() {
 
   this.draw = function() {};
     //This is where you load next level or if there are no more levels to be loaded it will load up the win screen.
+    
   this.die = function() {
+      this.alive = false;
+      
     if(Game.board.nextLevel()) {
       Game.loadBoard(new GameBoard(Game.board.nextLevel())); 
     } else {
@@ -97,7 +100,7 @@ Alien.prototype.fireSometimes = function() {
                                      { dy: 100 });
       }
 }
-
+            //PLAYER DETAILS
 var Player = function Player(opts) { 
   this.reloading = 0;
 }
@@ -109,12 +112,23 @@ Player.prototype.draw = function(canvas) {
 
 Player.prototype.die = function() {
   GameAudio.play('die');
-  Game.callbacks['die']();
-    // this is where i have added a way to reset the score to 0 on death
-    document.getElementById('score').innerHTML="Score : " - score;
-    score = score == 0;
+    Game.callbacks['loseLife']();
+    loseLife();
+    loseLifeScreen();
+    
+    if(lives <= 0){
+        Game.callbacks['die']();
+        lives = 3;
+        
+        };
+    
+    
     
 }
+    //document.getElementById('score').innerHTML="Score : " - score;
+    //score = score == 0;
+    
+//player movement control
 
 Player.prototype.step = function(dt) {
   if(Game.keys['left']) { this.x -= 100 * dt; }

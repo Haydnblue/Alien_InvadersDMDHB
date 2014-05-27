@@ -1,26 +1,30 @@
-var Game = new function() {                                                                  
+var Game = new function() {   
+    
+    //KEYBOARD CONTROL
   var KEY_CODES = { 37:'left', 39:'right', 32 :'fire' };
   this.keys = {};
-
+    //INITIALIZE THE CANVAS
   this.initialize = function(canvas_dom,level_data,sprite_data,callbacks) {
     this.canvas_elem = $(canvas_dom)[0];
     this.canvas = this.canvas_elem.getContext('2d');
     this.width = $(this.canvas_elem).attr('width');
     this.height= $(this.canvas_elem).attr('height');
-
+      // SET UP KEY BINDINGS
     $(window).keydown(function(event) {
-      if(KEY_CODES[event.keyCode]) Game.keys[KEY_CODES[event.keyCode]] = true;
+      if(KEY_CODES[event.keyCode]) 
+Game.keys[KEY_CODES[event.keyCode]] = true;
     });
 
     $(window).keyup(function(event) {
-      if(KEY_CODES[event.keyCode]) Game.keys[KEY_CODES[event.keyCode]] = false;
+      if(KEY_CODES[event.keyCode]) 
+Game.keys[KEY_CODES[event.keyCode]] = false;
     });
 
     this.level_data = level_data;
     this.callbacks = callbacks;
     Sprites.load(sprite_data,this.callbacks['start']);
   };
-
+        //RUNS THE GAME
   this.loadBoard = function(board) { Game.board = board; };
 //this is the bit that makes it go faster i changed it from 30 to 10
   this.loop = function() { 
@@ -46,7 +50,7 @@ var Sprites = new function() {
     canvas.drawImage(this.image, s.sx + frame * s.w, s.sy, s.w, s.h, x,y, s.w, s.h);
   };
 }
-
+        // THE STARTING SCREEN
 var GameScreen = function GameScreen(text,text2,callback) {
   this.step = function(dt) {
     if(Game.keys['fire'] && callback) callback();
@@ -63,7 +67,7 @@ var GameScreen = function GameScreen(text,text2,callback) {
     canvas.fillText(text2,Game.width/2 - measure2.width/2,Game.height/2 + 40);
   };
 };
-
+        // TO ADD SPRITES HERE
 var GameBoard = function GameBoard(level_number) {
   this.removed_objs = [];
   this.missiles = 0;
@@ -95,7 +99,7 @@ var GameBoard = function GameBoard(level_number) {
     }
     return false;
   };
-
+            // STEP AND RENDER
   this.step = function(dt) { 
     this.removed_objs = [];
     this.iterate(function() { 
@@ -112,7 +116,7 @@ var GameBoard = function GameBoard(level_number) {
     canvas.clearRect(0,0,Game.width,Game.height);
     this.iterate(function() { this.draw(canvas); });
   };
-
+        // THIS IS WHERE I CAN CHANGE COLLISIONS DETAILS
   this.collision = function(o1,o2) {
     return !((o1.y+o1.h-1<o2.y) || (o1.y>o2.y+o2.h-1) ||
              (o1.x+o1.w-1<o2.x) || (o1.x>o2.x+o2.w-1));
@@ -124,7 +128,7 @@ var GameBoard = function GameBoard(level_number) {
        return board.collision(obj,this) ? this : false;
     });
   };
-
+        //NEW LEVEL
   this.loadLevel = function(level) {
     this.objects = [];
     this.player = this.addSprite('player', // Sprite
@@ -151,7 +155,7 @@ var GameBoard = function GameBoard(level_number) {
  
   this.loadLevel(Game.level_data[level_number]);
 };
-
+            //AUDIO
 var GameAudio = new function() {
   this.load_queue = [];
   this.loading_sounds = 0;
@@ -164,7 +168,7 @@ var GameAudio = new function() {
     audio_channels[a]['channel'] = new Audio(); 
     audio_channels[a]['finished'] = -1;	
   }
-
+        //LOADING AUDIO
   this.load = function(files,callback) {
     var audioCallback = function() { GameAudio.finished(callback); }
 
@@ -185,7 +189,7 @@ var GameAudio = new function() {
       callback();
     }
   };
-
+            // TO PLAY THE SOUND
   this.play = function(s) {
     for (a=0;a<audio_channels.length;a++) {
       thistime = new Date();

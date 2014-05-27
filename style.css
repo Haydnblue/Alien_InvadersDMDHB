@@ -29,3 +29,12 @@ body{
     
 }
 
+#game-wrapper #lives    {
+    color: red;
+    font-weight: 100;
+    font-family: Ariel;
+    font-size: 30px;
+    text-align: center;
+    float: center;
+    padding: 10;
+}
