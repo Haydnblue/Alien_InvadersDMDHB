@@ -1,0 +1,31 @@
+
+
+body{
+   
+    background-color: white;
+   
+    
+}
+
+#gameboard { 
+  display: block;
+
+}
+
+#game-wrapper { 
+    margin:0 auto; 
+    width: 500px;
+
+}
+
+#game-wrapper #score {
+    color: red;
+    font-weight: 100;
+    font-family: Ariel;
+    font-size: 30px;
+    text-align: center;
+    float: center;
+    padding: 10;
+    
+}
+
