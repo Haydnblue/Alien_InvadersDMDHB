@@ -69,9 +69,9 @@ Alien.prototype.die = function() {
   GameAudio.play('die');
   this.flock.speed += 1;  //here is where there is a rule added where when alien dies it increseas the speed of the alien flock
   this.board.remove(this);
-    // this is where i can edit the score ammount on aliens killed.
-    document.getElementById('score').innerHTML="Score : " + score;
     score = score +1;
+    document.getElementById('score').innerHTML="SCORE : " + score;
+    
     
 }
 
@@ -125,8 +125,6 @@ Player.prototype.die = function() {
     
     
 }
-    //document.getElementById('score').innerHTML="Score : " - score;
-    //score = score == 0;
     
 //player movement control
 

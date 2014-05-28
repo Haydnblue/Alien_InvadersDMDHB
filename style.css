@@ -2,7 +2,7 @@
 
 body{
    
-    background-color: white;
+    background-color: black;
    
     
 }
@@ -18,23 +18,23 @@ body{
 
 }
 
-#game-wrapper #score {
+#game-wrapper #lives {
     color: red;
-    font-weight: 100;
-    font-family: Ariel;
+    font-weight: 50;
+    font-family: arial bold;
     font-size: 30px;
-    text-align: center;
-    float: center;
+    text-align: left;
+    float: left;
     padding: 10;
-    
 }
 
-#game-wrapper #lives    {
+#game-wrapper #score {
     color: red;
-    font-weight: 100;
-    font-family: Ariel;
+    font-weight: 50;
+    font-family: arial bold;
     font-size: 30px;
-    text-align: center;
-    float: center;
+    text-align: right;
+    float: right;
     padding: 10;
+    
 }

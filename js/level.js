@@ -42,43 +42,45 @@
   }
 
 function loseLife(){
-      if(this.player) lives = lives -1;
-      document.getElementById('Lives').innerHTML="LIVES: " + lives;
+  if(this.Player) lives = lives -1;
+    document.getElementById('lives').innerHTML="LIVES : " + lives; 
   }
-    
 
-function loseLifeScreen()   {
-        var screen = new GameScreen("SCORE: "+score+" ","you have "+lives+" lives left",
-                                    function() {
-                                        game.loadBoard(new
-                                                       GameBoard(1));
-                                    });
-        game.load.Board(screen);
-    }
-  
-  
-  // this is where i edit the menu text
-  function startGame() {
-    var screen = new GameScreen("Charizard fighter","press space to start",
+
+function loseLifeScreen() {
+    var screen = new GameScreen("SCORE : "+score+" ","you have "+lives+" lives left",
                                  function() {
-                                     Game.loadBoard(new GameBoard(1));                           
+                                     Game.loadBoard(new GameBoard(1));
+                                 });
+    Game.loadBoard(screen);
+
+  }
+
+  function startGame() {
+    var screen = new GameScreen("Charizard Attaack","press space to start",
+                                
+                                 function() {
+                                     Game.loadBoard(new GameBoard(1));
                                  });
     Game.loadBoard(screen);
     Game.loop();
   }
-// this is where you edit the game over text.
+
   function endGame() {
-    var screen = new GameScreen("Game Over","(press space to restart)",
+    var screen = new GameScreen("GAME OVER","press space to restart",
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
-                                      document.getElementById('lives').innerHTML="LIVES: " + lives;
-                                     score =0;
+                                      document.getElementById('lives').innerHTML="LIVES : " + lives;
+                                      
+                                     score = 0;
                                      document.getElementById('score').innerHTML="SCORE : " + score;
+                                     
+                            
                                  });
     Game.loadBoard(screen);
   }
 
-// this is where i add the you win screen.
+
   function winGame() {
     var screen = new GameScreen("You Win!","(press space to restart)",
                                  function() {
@@ -86,15 +88,18 @@ function loseLifeScreen()   {
                                  });
     Game.loadBoard(screen);
   }
+  
+  
 //this is where i change the sound files
   $(function() {
     GameAudio.load({ 'fire' : 'media/laser.ogg', 'die' : 'media/explosion.ogg' }, 
-                   function() { 
+                  function() { 
                        Game.initialize("#gameboard", levelData, spriteData,
                                       { "start": startGame,
                                         "die"  : endGame,
                                         "loseLife" : loseLifeScreen,
                                         "win"  : winGame });
+                                        
                    });
    });
 
