@@ -2,7 +2,7 @@
 
 body{
    
-    background-color: black;
+    background-color: blue;
    
     
 }
@@ -19,9 +19,9 @@ body{
 }
 
 #game-wrapper #lives {
-    color: red;
-    font-weight: 50;
-    font-family: arial bold;
+    color: yellow;
+    font-weight: 20;
+    font-family: OCR A Std;
     font-size: 30px;
     text-align: left;
     float: left;
@@ -29,9 +29,9 @@ body{
 }
 
 #game-wrapper #score {
-    color: red;
-    font-weight: 50;
-    font-family: arial bold;
+    color: yellow;
+    font-weight: 20;
+    font-family: OCR A Std;
     font-size: 30px;
     text-align: right;
     float: right;
