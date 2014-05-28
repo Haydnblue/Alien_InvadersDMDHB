@@ -131,10 +131,19 @@ Player.prototype.die = function() {
 Player.prototype.step = function(dt) {
   if(Game.keys['left']) { this.x -= 100 * dt; }
   if(Game.keys['right']) { this.x += 100 * dt; }
+  if(Game.keys['up']) { this.y -= 100* dt; }
+  if(Game.keys['down']) { if(this.y < 480) { this.y += 100* dt; }
+      
+  }
 
   if(this.x < 0) this.x = 0;
   if(this.x > Game.width-this.w) this.x = Game.width-this.w;
 
+  if(this.y < 400) this.y = 400;
+  if(this.height > Game.height) this.height  = Game.height - this.y;
+
+    
+    // missle data
   this.reloading--;
 
   if(Game.keys['fire'] && this.reloading <= 0 && this.board.missiles < 12) {

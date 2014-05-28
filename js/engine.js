@@ -1,14 +1,16 @@
 var Game = new function() {   
     
     //KEYBOARD CONTROL
-  var KEY_CODES = { 37:'left', 39:'right', 32 :'fire' };
+  var KEY_CODES = { 37:'left', 39:'right', 32 :'fire', 38:'up', 40:'down'};
   this.keys = {};
+    
     //INITIALIZE THE CANVAS
   this.initialize = function(canvas_dom,level_data,sprite_data,callbacks) {
     this.canvas_elem = $(canvas_dom)[0];
     this.canvas = this.canvas_elem.getContext('2d');
     this.width = $(this.canvas_elem).attr('width');
     this.height= $(this.canvas_elem).attr('height');
+      
       // SET UP KEY BINDINGS
     $(window).keydown(function(event) {
       if(KEY_CODES[event.keyCode]) 
