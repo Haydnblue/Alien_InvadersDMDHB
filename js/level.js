@@ -38,7 +38,8 @@
     'alien1': { sx: 0,  sy: 0,  w: 33.6, h: 30, cls: Alien, frames: 4 },
     'alien2': { sx: 0,  sy: 31, w: 39, h: 42, cls: Alien, frames: 4 },
     'player': { sx: 0,  sy: 85, w: 25, h: 29, cls: Player },
-    'missile': { sx: 0,  sy: 115, w: 6,  h: 15, cls: Missile, frames:5  }
+    'missile': { sx: 0,  sy: 115, w: 6,  h: 15, cls: Missile, frames:5}
+    //'missile2': { sx: 0,  sy: 85, w: 17,  h: 11, cls: Missile2 },
   }
 
 function loseLife(){
