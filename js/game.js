@@ -85,7 +85,7 @@ Alien.prototype.step = function(dt) {
     //this is where i change the frame count of the aliens i changed it to 2 frames//
     this.x += this.mx;
     this.mx = 0;
-    this.frame = (this.frame+1) % 4;
+    this.frame = (this.frame+1) % 3;
     if(this.x > Game.width - Sprites.map.alien1.w * 2) this.flock.hit = -1;
     if(this.x < Sprites.map.alien1.w) this.flock.hit = 1;
   }
