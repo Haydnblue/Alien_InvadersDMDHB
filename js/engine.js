@@ -24,7 +24,7 @@ Game.keys[KEY_CODES[event.keyCode]] = false;
 
     this.level_data = level_data;
     this.callbacks = callbacks;
-    Sprites.load(sprite_data,this.callbacks['start']);
+    Sprites.load(sprite_data, this.callbacks['start']);
   };
         //RUNS THE GAME
   this.loadBoard = function(board) { Game.board = board; };
@@ -43,7 +43,7 @@ var Sprites = new function() {
     this.map = sprite_data;
     this.image = new Image();
     this.image.onload = callback;
-    this.image.src = 'images/sprites2PS.png';
+    this.image.src = 'images/sprites2PS2.png';
   };
 
   this.draw = function(canvas,sprite,x,y,frame) {
@@ -72,7 +72,7 @@ var GameScreen = function GameScreen(text,text2,callback) {
         // TO ADD SPRITES HERE
 var GameBoard = function GameBoard(level_number) {
   this.removed_objs = [];
-  this.missiles = 0;
+  this.flames = 0;
   this.level = level_number;
   var board = this;
 

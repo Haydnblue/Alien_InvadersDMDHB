@@ -146,17 +146,46 @@ Player.prototype.step = function(dt) {
     // missle data
   this.reloading--;
 
-  if(Game.keys['fire'] && this.reloading <= 0 && this.board.missiles < 12) {
+//this is where I change the players fire rate.
+  if(Game.keys['fire'] && this.reloading <= 0 && this.board.flames < 10) {
     GameAudio.play('fire');
-    this.board.addSprite('missile',                     //this is where i can change the missles player will fire 
-                          this.x + this.w/2 - Sprites.map.missile.w/2,
+    this.board.addSprite('flame',
+                          this.x + this.w/2 - Sprites.map.flame.w/2,
                           this.y-this.h,
                           { dy: -100, player: true });
-    this.board.missiles++;
-    this.reloading = 10;
+    this.board.flames++;
+    this.reloading = 8;
   }
   return true;
 }
+
+var Flame = function Flame(opts) {
+   this.dy = opts.dy;
+   this.player = opts.player;
+}
+
+Flame.prototype.draw = function(canvas) {
+   Sprites.draw(canvas,'flame',this.x,this.y);
+}
+
+Flame.prototype.step = function(dt) {
+   this.y += this.dy * dt;
+
+   var enemy = this.board.collide(this);
+   if(enemy) { 
+     enemy.die();
+     return false;
+   }
+   return (this.y < 0 || this.y > Game.height) ? false : true;
+}
+
+Flame.prototype.die = function() {
+  if(this.player) this.board.flames--;
+  if(this.board.flames < 0) this.board.flames=0;
+   this.board.remove(this);
+}
+
+
 
 
 var Missile = function Missile(opts) {
