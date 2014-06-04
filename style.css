@@ -19,9 +19,9 @@ body{
 }
 
 #game-wrapper #lives {
-    color: yellow;
+    color: #405aa7;
     font-weight: 20;
-    font-family: OCR A Std;
+    font-family: Karmatic Arcade;
     font-size: 30px;
     text-align: left;
     float: left;
@@ -29,12 +29,17 @@ body{
 }
 
 #game-wrapper #score {
-    color: yellow;
+    color: #405aa7;
     font-weight: 20;
-    font-family: OCR A Std;
+    font-family: Karmatic Arcade;
     font-size: 30px;
     text-align: right;
     float: right;
     padding: 10;
     
+}
+
+#title  {
+    margin:0 auto; 
+    width: 500px;
 }

@@ -147,7 +147,7 @@ Player.prototype.step = function(dt) {
   this.reloading--;
 
 //this is where I change the players fire rate.
-  if(Game.keys['fire'] && this.reloading <= 0 && this.board.flames < 10) {
+  if(Game.keys['fire'] && this.reloading <= 1 && this.board.flames < 3) {
     GameAudio.play('fire');
     this.board.addSprite('flame',
                           this.x + this.w/2 - Sprites.map.flame.w/2,

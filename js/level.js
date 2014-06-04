@@ -58,7 +58,7 @@ function loseLifeScreen() {
   }
 
   function startGame() {
-    var screen = new GameScreen("Charizard Attaack","press space to start",
+    var screen = new GameScreen("Charizard Training","press space to start",
                                 
                                  function() {
                                      Game.loadBoard(new GameBoard(1));
