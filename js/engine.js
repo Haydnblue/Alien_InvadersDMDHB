@@ -1,7 +1,7 @@
 var Game = new function() {   
     
     //KEYBOARD CONTROL
-  var KEY_CODES = { 37:'left', 39:'right', 32 :'fire', 38:'up', 40:'down'};
+  var KEY_CODES = { 65:'left', 68:'right', 32 :'fire', 87:'up', 83:'down'};
   this.keys = {};
     
     //INITIALIZE THE CANVAS
